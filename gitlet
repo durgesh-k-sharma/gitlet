@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+if [ -f "$DIR/target/release/gitlet" ]; then
+    exec "$DIR/target/release/gitlet" "$@"
+else
+    exec "$DIR/target/debug/gitlet" "$@"
+fi
